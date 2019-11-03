@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', function(){
   echo "Admin page";
 })->middleware('checkAdmin');
+
+Route::get('/', array('as' => 'admin', 'uses' => 'AdminController@index'));
