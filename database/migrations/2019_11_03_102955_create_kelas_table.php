@@ -17,12 +17,12 @@ class CreateKelasTable extends Migration
             $table->bigIncrements('id');
             $table->integer('klsId'); //ID Kelas
             $table->integer('klsMkKurId'); //ForeignKey matakuliah_kurikulum
-            $table->integer('klsDsnNidn')->unsigned(); //ForeignKey table dosen
+            $table->bigInteger('klsDsnId')->unsigned(); //ForeignKey table dosen
             $table->integer('klsSempId'); //Kode Semester Prodi
             $table->string('klsNama'); //Nama Kelas
             $table->timestamps();
 
-            $table->foreign('klsDsnNidn')->references('dsnNidn')->on('dosen')->onDelete('cascade');
+            $table->foreign('klsDsnId')->references('id')->on('dosen')->onDelete('cascade');
         });
     }
 

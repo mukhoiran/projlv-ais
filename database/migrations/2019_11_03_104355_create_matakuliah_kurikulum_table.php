@@ -17,13 +17,13 @@ class CreateMatakuliahKurikulumTable extends Migration
             $table->bigIncrements('id');
             $table->string('mkkurId'); //ID Matakuliah Kurikulum
             $table->string('mkkurNama'); //Nama Matakuliah pada Kurikulum
-            $table->integer('mkkurKurId')->unsigned(); //ForeignKey Table Kurikulum
+            $table->bigInteger('mkkurKurId')->unsigned(); //ForeignKey Table Kurikulum
             $table->tinyInteger('mkkurSemester'); //Semester Mata Kuliah digunakan
             $table->tinyInteger('mkkurJenisSemester'); //jenis Semester Reguler / Pilihan
             $table->tinyInteger('mkkurJumlahSks'); //Jumlah SKS Matakuliah
             $table->timestamps();
 
-            $table->foreign('mkkurKurId')->references('kurId')->on('kurikulum')->onDelete('cascade');
+            $table->foreign('mkkurKurId')->references('id')->on('kurikulum')->onDelete('cascade');
         });
     }
 

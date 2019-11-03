@@ -16,13 +16,13 @@ class CreateKrsNilaiTable extends Migration
         Schema::create('krs_nilai', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('krsnaId');
-            $table->integer('krsnaKrsDtId')->unsigned(); //ForeignKey
+            $table->bigInteger('krsnaKrsDtId')->unsigned(); //ForeignKey
             $table->integer('krsnaNilaiTugas');
             $table->integer('krsnaNilaiUTS');
             $table->integer('krsnaNilaiUAS');
             $table->timestamps();
 
-            $table->foreign('krsnaKrsDtId')->references('krsdtId')->on('krs_detail')->onDelete('cascade');
+            $table->foreign('krsnaKrsDtId')->references('id')->on('krs_detail')->onDelete('cascade');
         });
     }
 
