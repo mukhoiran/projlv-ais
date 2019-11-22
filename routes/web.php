@@ -22,4 +22,4 @@ Route::get('admin', function(){
   echo "Admin page";
 })->middleware('checkAdmin');
 
-Route::get('/', array('as' => 'admin', 'uses' => 'AdminController@index'));
+// Route::get('/', array('as' => 'admin', 'uses' => 'AdminController@index'));

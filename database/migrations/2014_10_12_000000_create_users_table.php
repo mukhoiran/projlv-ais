@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->tinyInteger('admin')->default('0');
-            $table->tinyInteger('level');
+            $table->tinyInteger('level')->default('0');
             $table->timestamps();
         });
     }
