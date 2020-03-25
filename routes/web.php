@@ -18,8 +18,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin', function(){
+
+
+// ============== Testing Route =============================
+Route::get('/admin', function(){
   echo "Admin page";
 })->middleware('checkAdmin');
 
-// Route::get('/', array('as' => 'admin', 'uses' => 'AdminController@index'));
+Route::get('/template', array('as' => 'admin', 'uses' => 'AdminController@index'));
+
+// Route as admin
+Route::group(['middleware' => ['web','checkLevel:1']], function()
+{
+  Route::get('/trymiddleware', function(){
+    return 'Hallo .. how are you?';
+  });
+});
